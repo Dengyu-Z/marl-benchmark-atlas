@@ -1,0 +1,452 @@
+[
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "tiny-2ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "tiny-2ag-hard",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "tiny-4ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "tiny-4ag-hard",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "small-4ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "small-4ag-hard",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "medium-4ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "medium-4ag-hard",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "large-4ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "large-4ag-hard",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "xlarge-4ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "xlarge-4ag-hard",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "medium-6ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "large-8ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "rware",
+    "paper_task_label": "large-8ag-hard",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "lbf",
+    "paper_task_label": "8x8-2p-2f-coop",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "lbf",
+    "paper_task_label": "2s-8x8-2p-2f-coop",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "lbf",
+    "paper_task_label": "10x10-3p-3f",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "lbf",
+    "paper_task_label": "2s-10x10-3p-3f",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "lbf",
+    "paper_task_label": "15x15-3p-5f",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "lbf",
+    "paper_task_label": "15x15-4p-3f",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "lbf",
+    "paper_task_label": "15x15-4p-5f",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "connector",
+    "paper_task_label": "con-5x5x3a",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "connector",
+    "paper_task_label": "con-7x7x5a",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "connector",
+    "paper_task_label": "con-10x10x10a",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "connector",
+    "paper_task_label": "con-15x15x23a",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "Jumanji via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "2s3z",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "3s5z",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "3s vs 5z",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "6h vs 8z",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "5m vs 6m",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "10m vs 11m",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "3s5z vs 3s6z",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "27m vs 30m",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "smacv2 5 units",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "smacv2 10 units",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "smax",
+    "paper_task_label": "smacv2 20 units",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "discrete",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mabrax",
+    "paper_task_label": "hopper 3x1",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mabrax",
+    "paper_task_label": "halfcheetah 6x1",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mabrax",
+    "paper_task_label": "walker2d 2x3",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mabrax",
+    "paper_task_label": "ant 4x2",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mabrax",
+    "paper_task_label": "humanoid 9|8",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mpe",
+    "paper_task_label": "simple spread 3ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mpe",
+    "paper_task_label": "simple spread 5ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  },
+  {
+    "paper_id": "sable",
+    "environment_id": "mpe",
+    "paper_task_label": "simple spread 10ag",
+    "label_note": "Typography normalized from PDF; paper label, not a validated API ID.",
+    "action_space": "continuous",
+    "implementation": "JaxMARL via Mava",
+    "source_location": "Appendix C, Table 2 (PDF p.25); Appendix B for semantics",
+    "runtime_status": "not_run"
+  }
+]

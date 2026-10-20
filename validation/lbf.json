@@ -1,0 +1,59 @@
+{
+  "record_type": "random_policy_smoke",
+  "environment_id": "lbf",
+  "implementation": "lb-foraging Gymnasium Foraging-8x8-2p-2f-v3",
+  "passed": true,
+  "config": {
+    "environment_id": "Foraging-8x8-2p-2f-v3",
+    "spec_kwargs": {
+      "players": 2,
+      "min_player_level": 1,
+      "max_player_level": 2,
+      "field_size": [
+        8,
+        8
+      ],
+      "min_food_level": 1,
+      "max_food_level": null,
+      "max_num_food": 2,
+      "sight": 8,
+      "max_episode_steps": 50,
+      "force_coop": false,
+      "grid_observation": false,
+      "penalty": 0.0
+    },
+    "action_space": "Tuple(Discrete(6), Discrete(6))",
+    "observation_space": "Tuple(Box([-1. -1.  0. -1. -1.  0. -1. -1.  0. -1. -1.  0.], [7. 7. 4. 7. 7. 4. 7. 7. 2. 7. 7. 2.], (12,), float32), Box([-1. -1.  0. -1. -1.  0. -1. -1.  0. -1. -1.  0.], [7. 7. 4. 7. 7. 4. 7. 7. 2. 7. 7. 2.], (12,), float32))"
+  },
+  "episodes": [
+    {
+      "seed": 0,
+      "joint_steps": 50,
+      "per_agent_return": [
+        0.0,
+        0.0
+      ],
+      "terminated": true,
+      "truncated": false
+    },
+    {
+      "seed": 1,
+      "joint_steps": 50,
+      "per_agent_return": [
+        0.0,
+        0.0
+      ],
+      "terminated": true,
+      "truncated": false
+    }
+  ],
+  "versions": {
+    "lbforaging": "2.0.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.5.4"
+  },
+  "python": "3.12.14",
+  "platform": "Linux x86_64",
+  "timestamp_utc": "2026-10-20T12:00:47.883176+00:00",
+  "scope": "reset/step/action-space compatibility only; no policy trained"
+}

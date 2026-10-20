@@ -1,0 +1,604 @@
+[
+  {
+    "id": "rware",
+    "name": "RWARE / Robot Warehouse",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "Jumanji / original Python",
+    "observation": "partial grid view",
+    "reward": "sparse delivery reward",
+    "description": "Robots fetch shelves, deliver requested goods, and avoid blocking one another. / 机器人搬运货架、配送并避免相互阻塞。",
+    "tags": [
+      "sparse-reward",
+      "coordination",
+      "congestion",
+      "jax"
+    ],
+    "upstream": [
+      {
+        "label": "Jumanji",
+        "url": "https://github.com/instadeepai/jumanji"
+      },
+      {
+        "label": "Original RWARE",
+        "url": "https://github.com/semitable/robotic-warehouse"
+      }
+    ],
+    "comparability_warning": "Sable Appendix B.1 explicitly says its Jumanji implementation terminates on a collision, unlike the original collision-resolution logic. Check the exact revision and wrapper before transferring scores.",
+    "metrics": "Use delivery count/return, collision and early-termination rates. A time limit and a collision terminal are different outcomes.",
+    "getting_started": "Start with tiny tasks; add warehouse size, number of robots and request difficulty separately. The original Python environment and Sable Jumanji setup are separate configurations.",
+    "papers": [
+      "sable",
+      "magpo"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/rware.md"
+  },
+  {
+    "id": "lbf",
+    "name": "Level-Based Foraging",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "Jumanji / lb-foraging",
+    "observation": "full or sight-limited, by task",
+    "reward": "food collection; normalization depends on implementation",
+    "description": "Agents combine levels to collect food that may be impossible to collect alone. / 智能体通过等级配合采集食物。",
+    "tags": [
+      "sparse-reward",
+      "coordination",
+      "heterogeneity",
+      "jax"
+    ],
+    "upstream": [
+      {
+        "label": "Jumanji",
+        "url": "https://github.com/instadeepai/jumanji"
+      },
+      {
+        "label": "Original LBF",
+        "url": "https://github.com/semitable/lb-foraging"
+      }
+    ],
+    "comparability_warning": "force_coop, sight, food levels, normalization and episode limits change the task. Sable also modifies observation packing in its additional scalability experiment; do not silently apply that modification to all LBF runs.",
+    "metrics": "Report return and food completion; define any joint-load event and its denominator. A positive conditional load-success rate does not imply higher total episode return.",
+    "getting_started": "Use the original Python API for a small reset/step check; use the paper-pinned Jumanji/Mava configuration for a Sable comparison.",
+    "papers": [
+      "sable",
+      "magpo"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "smoke_passed",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/lbf.md"
+  },
+  {
+    "id": "connector",
+    "name": "Connector",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "Jumanji",
+    "observation": "Sable uses a local-view wrapper",
+    "reward": "connection reward plus step penalty in Sable",
+    "description": "Agents draw non-crossing paths from start to target without trapping each other. / 路径一旦走过就会阻塞，需协作连接起点与终点。",
+    "tags": [
+      "coordination",
+      "routing",
+      "jax"
+    ],
+    "upstream": [
+      {
+        "label": "Jumanji",
+        "url": "https://github.com/instadeepai/jumanji"
+      }
+    ],
+    "comparability_warning": "Sable Appendix B.4 gives a paper-specific observation and reward description. Paper labels such as con-5x5x3a are not guaranteed to be registered environment IDs.",
+    "metrics": "Report connected-agent fraction, return and time to completion. Distinguish reward aggregation per agent from team sums.",
+    "getting_started": "Use the smallest paper task before raising grid size and number of paths. Keep generator, wrapper and reward parameters with results.",
+    "papers": [
+      "sable",
+      "magpo"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/connector.md"
+  },
+  {
+    "id": "smax",
+    "name": "SMAX",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "JaxMARL",
+    "observation": "local combat observations",
+    "reward": "combat shaping plus victory reward in Sable",
+    "description": "A JAX combat simulator inspired by SMAC, without the StarCraft II engine. / 无需星际争霸引擎的 JAX 战斗协作环境。",
+    "tags": [
+      "coordination",
+      "heterogeneity",
+      "jax"
+    ],
+    "upstream": [
+      {
+        "label": "JaxMARL",
+        "url": "https://github.com/bold-lab-ai/JaxMARL"
+      }
+    ],
+    "comparability_warning": "SMAX is not SMAC or engine-based SMACv2. The three smacv2_*_units labels in Sable are still SMAX tasks. Never merge their win-rate or return tables.",
+    "metrics": "Record win rate and return separately, unit composition, opponent generator, attack availability and reward settings.",
+    "getting_started": "Useful for accelerator-based combat experiments; separate compile time from steady-state throughput.",
+    "papers": [
+      "sable",
+      "magpo"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/smax.md"
+  },
+  {
+    "id": "mabrax",
+    "name": "MaBrax",
+    "kind": "online",
+    "action_space": "continuous",
+    "implementation": "JaxMARL + Brax",
+    "observation": "local joint and root-body information",
+    "reward": "forward progress minus control costs",
+    "description": "Agents control different joint groups of one robot. / 多个智能体共同控制机器人的不同关节。",
+    "tags": [
+      "continuous-control",
+      "heterogeneity",
+      "jax"
+    ],
+    "upstream": [
+      {
+        "label": "JaxMARL",
+        "url": "https://github.com/bold-lab-ai/JaxMARL"
+      }
+    ],
+    "comparability_warning": "MaBrax uses Brax physics. Matching a MA-MuJoCo joint partition does not make simulation dynamics or reference returns identical.",
+    "metrics": "Record robot, joint partition, observation radius, simulator backend and reward components; compare continuous-action-compatible baselines.",
+    "getting_started": "Sable uses five robot/partition tasks. Start with a small partition; benchmark compilation and rollout separately.",
+    "papers": [
+      "sable"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/mabrax.md"
+  },
+  {
+    "id": "mpe",
+    "name": "MPE / MPE2",
+    "kind": "online",
+    "action_space": "both",
+    "implementation": "JaxMARL / MPE2 / historical MPE",
+    "observation": "scenario-dependent; do not assume every task is partially observable",
+    "reward": "scenario and local_ratio dependent",
+    "description": "Particle agents navigate, communicate or compete in a 2D world. / 二维粒子导航、通信和协作或竞争。",
+    "tags": [
+      "coordination",
+      "communication",
+      "continuous-control"
+    ],
+    "upstream": [
+      {
+        "label": "MPE2",
+        "url": "https://github.com/Farama-Foundation/MPE2"
+      },
+      {
+        "label": "Simple Spread API",
+        "url": "https://mpe2.farama.org/environments/simple_spread/"
+      },
+      {
+        "label": "JaxMARL",
+        "url": "https://github.com/bold-lab-ai/JaxMARL"
+      }
+    ],
+    "comparability_warning": "Sable uses continuous JaxMARL simple_spread for 3/5/10 agents. MPE2 supports discrete and continuous actions and exposes a different action vector. This repository's MPE2 smoke example is not an exact Sable reproduction.",
+    "metrics": "Record N, landmarks, local_ratio, action dimensionality, termination and max_cycles. The reward can be negative because distance and collision costs are penalties.",
+    "getting_started": "Best first reset/step example here. Communication priors, MMQ and SS-MARL modify different parts of MPE; their scores belong to different task definitions.",
+    "papers": [
+      "sable",
+      "communication-priors",
+      "magpo",
+      "safe-marl",
+      "mmq"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "smoke_passed",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/mpe.md"
+  },
+  {
+    "id": "smac",
+    "name": "SMAC",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "StarCraft II + SMAC",
+    "observation": "local sight and available-action masks",
+    "reward": "dense or sparse; paper-specific",
+    "description": "Control allied combat units against the built-in opponent. / 控制己方单位协同作战。",
+    "tags": [
+      "coordination",
+      "heterogeneity",
+      "combat"
+    ],
+    "upstream": [
+      {
+        "label": "Official SMAC",
+        "url": "https://github.com/oxwhirl/smac"
+      }
+    ],
+    "comparability_warning": "Pin the StarCraft II build, maps, SMAC revision and reward mode. R3DM records SC2 4.10; another build is not automatically comparable.",
+    "metrics": "Report win rate, return, map and evaluation action mode. Keep action-availability masks during evaluation.",
+    "getting_started": "Requires external game installation. Validate one process before parallel workers; a learner GPU is not the same as the simulator process.",
+    "papers": [
+      "cee",
+      "r3dm",
+      "lazy-agents",
+      "g-mat",
+      "rac"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/smac.md"
+  },
+  {
+    "id": "smacv2",
+    "name": "SMACv2",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "StarCraft II + SMACv2",
+    "observation": "local sight; configuration-dependent",
+    "reward": "configuration-dependent combat reward",
+    "description": "Randomized unit teams and starting conditions extend SMAC. / 随机化队伍与初始条件的战斗协作基准。",
+    "tags": [
+      "coordination",
+      "heterogeneity",
+      "population-generalization",
+      "combat"
+    ],
+    "upstream": [
+      {
+        "label": "Official SMACv2",
+        "url": "https://github.com/oxwhirl/smacv2"
+      }
+    ],
+    "comparability_warning": "Do not confuse engine-based SMACv2 with SMAX tasks named smacv2_*_units. Race, team generator, unit distribution and field of view must be recorded.",
+    "metrics": "Report win rate and return over held-out episode seeds; separate training seeds from evaluation seeds.",
+    "getting_started": "Run the provided optional protoss_5_vs_5 smoke recipe only after SC2 and the required maps are installed. Install cost is not a measured runtime estimate.",
+    "papers": [
+      "cee",
+      "r3dm"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/smacv2.md"
+  },
+  {
+    "id": "mamujoco",
+    "name": "Multi-Agent MuJoCo",
+    "kind": "online",
+    "action_space": "continuous",
+    "implementation": "MA-MuJoCo / Gymnasium-Robotics variants",
+    "observation": "joint-partition and observation-radius dependent",
+    "reward": "robot-specific locomotion reward",
+    "description": "Split a MuJoCo robot's actuators among collaborating agents. / 将 MuJoCo 机器人执行器分配给多个智能体。",
+    "tags": [
+      "continuous-control",
+      "heterogeneity"
+    ],
+    "upstream": [
+      {
+        "label": "Original repository",
+        "url": "https://github.com/schroederdewitt/multiagent_mujoco"
+      },
+      {
+        "label": "Gymnasium-Robotics",
+        "url": "https://robotics.farama.org/"
+      }
+    ],
+    "comparability_warning": "Original MA-MuJoCo, newer wrappers and MaBrax must be tracked as separate implementations. Match partition, MuJoCo version and observation configuration.",
+    "metrics": "Report episode return, robot, partition and evaluation noise. Do not compare values across different reward normalizations.",
+    "getting_started": "Relevant for OptiMAPPO and MMQ. Use the implementation referenced by each paper rather than substituting a similarly named environment.",
+    "papers": [
+      "mmq",
+      "optimappo"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/mamujoco.md"
+  },
+  {
+    "id": "vmas",
+    "name": "VMAS",
+    "kind": "online",
+    "action_space": "both",
+    "implementation": "PyTorch vectorized simulator",
+    "observation": "scenario-dependent",
+    "reward": "scenario-dependent shared or per-agent reward",
+    "description": "Vectorized 2D multi-robot simulation with configurable scenarios. / 支持批量运行的二维多机器人仿真。",
+    "tags": [
+      "coordination",
+      "behavioral-diversity",
+      "continuous-control",
+      "vectorized"
+    ],
+    "upstream": [
+      {
+        "label": "Official VMAS",
+        "url": "https://github.com/proroklab/VectorizedMultiAgentSimulator"
+      },
+      {
+        "label": "BenchMARL",
+        "url": "https://github.com/facebookresearch/BenchMARL"
+      }
+    ],
+    "comparability_warning": "A simulator family is not a single benchmark. DiCo tasks have their own observation, reward and goal-assignment choices. CAMAR uses VMAS as a throughput comparator, not necessarily a policy-quality baseline.",
+    "metrics": "For diversity studies record SND, parameter sharing, goal assignment and reward in addition to entropy.",
+    "getting_started": "Start with a documented scenario in BenchMARL. Record batch size and simulator device for throughput comparisons.",
+    "papers": [
+      "camar-paper",
+      "dico"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/vmas.md"
+  },
+  {
+    "id": "grf",
+    "name": "Google Research Football",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "Football engine + Python wrappers",
+    "observation": "observation-representation dependent",
+    "reward": "sparse scoring or shaped, by experiment",
+    "description": "Cooperative football scenarios with passing, movement and scoring. / 通过传球、跑位和射门完成配合。",
+    "tags": [
+      "sparse-reward",
+      "coordination",
+      "sports"
+    ],
+    "upstream": [
+      {
+        "label": "Official GRF",
+        "url": "https://github.com/google-research/football"
+      }
+    ],
+    "comparability_warning": "Academy scenario, controlled-player count, observation representation, shared reward and scoring/checkpoint shaping are part of the task identity.",
+    "metrics": "Report score/win or completion as appropriate, return, episode limits and reward mode.",
+    "getting_started": "CEE, LAIES and g-MAT all use football, but sparse/dense settings must be checked before comparing their plots.",
+    "papers": [
+      "cee",
+      "lazy-agents",
+      "g-mat"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/grf.md"
+  },
+  {
+    "id": "overcooked",
+    "name": "Overcooked",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "overcooked_ai and paper wrappers",
+    "observation": "layout/featurizer dependent",
+    "reward": "sparse deliveries; optional shaping",
+    "description": "Two cooks coordinate ingredient preparation, cooking and delivery. / 两名厨师协同备料、烹饪与送餐。",
+    "tags": [
+      "coordination",
+      "role-specialization",
+      "partner-generalization"
+    ],
+    "upstream": [
+      {
+        "label": "Official Overcooked-AI",
+        "url": "https://github.com/HumanCompatibleAI/overcooked_ai"
+      }
+    ],
+    "comparability_warning": "Different layouts, shaping schedules and wrappers change the problem. Overcooked and OvercookedV2 are distinct implementations.",
+    "metrics": "Report sparse delivery score, shaped training reward separately, layout, horizon and partner protocol.",
+    "getting_started": "Useful for role/partner experiments, but held-out partners and layouts must be designed explicitly; they are not guaranteed by a single training run.",
+    "papers": [
+      "optimappo"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/overcooked.md"
+  },
+  {
+    "id": "camar",
+    "name": "CAMAR",
+    "kind": "online",
+    "action_space": "continuous",
+    "implementation": "CAMAR",
+    "observation": "local vector observations",
+    "reward": "goal, path and collision terms",
+    "description": "Continuous multi-agent routing with obstacles and configurable dynamics. / 含障碍和不同动力学的连续多智能体路径规划。",
+    "tags": [
+      "routing",
+      "continuous-control",
+      "heterogeneity"
+    ],
+    "upstream": [
+      {
+        "label": "Official CAMAR",
+        "url": "https://github.com/AIRI-Institute/CAMAR"
+      },
+      {
+        "label": "AAAI paper",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40209"
+      }
+    ],
+    "comparability_warning": "Holonomic versus other dynamics, maps, agent sizes and collision handling define different tasks. Reported simulator SPS is not a claim about learner end-to-end speed.",
+    "metrics": "Use goal-reaching success, time/path quality and collision metrics together; retain the benchmark's tiered evaluation protocol.",
+    "getting_started": "This edition provides a literature card and upstream links, without a local installation or a performance claim.",
+    "papers": [
+      "camar-paper"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/camar.md"
+  },
+  {
+    "id": "coordination-games",
+    "name": "Didactic coordination games",
+    "kind": "paper-specific",
+    "action_space": "both",
+    "implementation": "paper-specific implementations",
+    "observation": "constant, phase or context observation",
+    "reward": "explicit payoff/coupling design",
+    "description": "Small games isolate coordination failures and relative overgeneralization. / 用可控小博弈隔离协作与相对过度泛化机制。",
+    "tags": [
+      "mechanism-diagnosis",
+      "relative-overgeneralization",
+      "credit-assignment"
+    ],
+    "upstream": [],
+    "comparability_warning": "RAC matrix games, MAGPO CoordSum, MMQ differential games and MAPO graph-coupled games are distinct tasks. This grouping is for discovery, not for pooling numerical results.",
+    "metrics": "Publish payoff table, horizon, initial-state distribution, observation and optimal joint solution. A toy-game effect does not establish general benchmark improvement.",
+    "getting_started": "Use for a fast mechanism check before a larger simulator. Select the exact game and retrieve the original implementation from the relevant paper card.",
+    "papers": [
+      "rac",
+      "magpo",
+      "aggregate-advantage",
+      "mmq",
+      "optimappo"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/coordination-games.md"
+  },
+  {
+    "id": "open-wildfire",
+    "name": "Open-system Wildfire",
+    "kind": "paper-specific",
+    "action_space": "unknown",
+    "implementation": "openness_CAP / Wildfire WS1",
+    "observation": "open-agent-system configuration dependent",
+    "reward": "wildfire configuration dependent",
+    "description": "Agents and tasks can change during a wildfire-management episode. / 智能体或任务可在野火管理过程中变化。",
+    "tags": [
+      "agent-openness",
+      "task-openness",
+      "credit-assignment"
+    ],
+    "upstream": [
+      {
+        "label": "Paper code",
+        "url": "https://github.com/bboyfury/openness_CAP"
+      }
+    ],
+    "comparability_warning": "WS1 and openness mechanisms must be preserved. Do not infer the local action space or independent training seed count from the prose alone.",
+    "metrics": "Record entry/exit rules, task changes, time of changes and return. Fixed-seed evaluation episodes are not independent training replications.",
+    "getting_started": "Paper mapping only. Action-space details and install instructions are intentionally unresolved in this edition.",
+    "papers": [
+      "open-credit"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/open-wildfire.md"
+  },
+  {
+    "id": "sumo-rl",
+    "name": "SUMO-RL traffic signals",
+    "kind": "online",
+    "action_space": "discrete",
+    "implementation": "SUMO + sumo-rl",
+    "observation": "intersection-local traffic features",
+    "reward": "per-signal traffic objective",
+    "description": "Traffic signals cooperate through a road network. / 路口信号灯通过道路网络形成耦合控制问题。",
+    "tags": [
+      "graph-coupling",
+      "credit-assignment",
+      "traffic"
+    ],
+    "upstream": [
+      {
+        "label": "Official SUMO-RL",
+        "url": "https://github.com/LucasAlegre/sumo-rl"
+      }
+    ],
+    "comparability_warning": "Road network, demand/routes, signal timings, SUMO version and reward definition affect results. The MAPO 28×7 experiment is a specific configuration.",
+    "metrics": "Record team reward, queue length and waiting time; preserve the graph and local reward support.",
+    "getting_started": "Useful for graph-local credit assignment. There is no claim that the large 196-signal experiment is a low-compute starting point.",
+    "papers": [
+      "aggregate-advantage"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/sumo-rl.md"
+  },
+  {
+    "id": "og-marl",
+    "name": "OG-MARL",
+    "kind": "offline-dataset",
+    "action_space": "both",
+    "implementation": "offline dataset collection + baseline code",
+    "observation": "dataset dependent",
+    "reward": "recorded returns; collection-policy dependent",
+    "description": "Datasets and baselines for learning from fixed multi-agent trajectories. / 基于固定多智能体轨迹学习的离线数据与基线。",
+    "tags": [
+      "offline-rl",
+      "dataset-quality",
+      "coverage"
+    ],
+    "upstream": [
+      {
+        "label": "Official OG-MARL",
+        "url": "https://github.com/instadeepai/og-marl"
+      }
+    ],
+    "comparability_warning": "This is an offline data resource, not one of Sable's six online suites. Dataset version, source simulator, collection policies and train/evaluation protocol are part of its identity.",
+    "metrics": "Record dataset quality, transition/episode counts, behavior coverage and online evaluation budget, if any.",
+    "getting_started": "Added as a separate resource entry so online environments and fixed datasets are never conflated. Specific downloadable datasets are not enumerated here.",
+    "papers": [],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/og-marl.md"
+  },
+  {
+    "id": "neom",
+    "name": "NEOM (Sable scalability task)",
+    "kind": "paper-specific",
+    "action_space": "discrete",
+    "implementation": "Sable paper/code",
+    "observation": "position target and action-history description in paper",
+    "reward": "paper-defined coordination reward",
+    "description": "A synthetic cooperative task for scaling to many agents. / 用于大规模智能体扩展实验的合成协作任务。",
+    "tags": [
+      "scalability",
+      "coordination"
+    ],
+    "upstream": [
+      {
+        "label": "Sable / Mava",
+        "url": "https://github.com/instadeepai/Mava"
+      }
+    ],
+    "comparability_warning": "NEOM belongs to the additional scalability study, not the six-suite 45-task main performance benchmark. A current public API path is not verified in this edition.",
+    "metrics": "Record agent count, solved coordination criteria, memory and throughput; distinguish recurrent context scaling from agent scaling.",
+    "getting_started": "Consult Sable Section 4.2 and Appendix B.7. No local smoke recipe or current upstream API is asserted.",
+    "papers": [
+      "sable"
+    ],
+    "evidence_status": "literature_checked",
+    "runtime_status": "not_run",
+    "checked_on": "2026-10-20",
+    "card": "docs/environments/neom.md"
+  }
+]

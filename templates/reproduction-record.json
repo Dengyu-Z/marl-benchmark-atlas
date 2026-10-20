@@ -1,0 +1,35 @@
+{
+  "record_type": "template_not_a_result",
+  "environment_id": null,
+  "implementation_url": null,
+  "implementation_commit": null,
+  "package_versions": {},
+  "task_id": null,
+  "task_parameters": {},
+  "observations": {},
+  "action_space": {},
+  "reward_and_cost": {},
+  "termination_and_truncation": {},
+  "training": {
+    "algorithm": null,
+    "parameter_sharing": null,
+    "joint_environment_transitions": null,
+    "agent_transitions": null,
+    "gradient_updates": null,
+    "independent_training_seeds": [],
+    "extra_probe_or_teacher_budget": null
+  },
+  "evaluation": {
+    "episode_seeds": [],
+    "episodes_per_training_seed": null,
+    "action_mode": null,
+    "held_out_distribution": null,
+    "teacher_removed": null,
+    "metric_definitions": {},
+    "aggregation": null,
+    "uncertainty_method": null
+  },
+  "hardware": {},
+  "results": null,
+  "evidence_paths": []
+}

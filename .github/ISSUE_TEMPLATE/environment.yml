@@ -1,0 +1,28 @@
+name: Environment or protocol contribution
+description: Add a sourced environment entry, version difference or runtime record.
+title: "[Catalog] "
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Environment / paper / implementation
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: What should be added or corrected?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Primary source and exact locator
+      description: Link the official repository/documentation or paper section/table/page.
+    validations:
+      required: true
+  - type: textarea
+    id: run
+    attributes:
+      label: Runtime evidence, if any
+      description: Config, package versions, command and output. Otherwise state literature-only.

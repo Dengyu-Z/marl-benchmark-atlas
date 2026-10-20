@@ -1,0 +1,29 @@
+{
+  "checked_on": "2026-10-20",
+  "scope": "Catalog integrity, Python syntax, offline CLI and named random-policy smoke runs only",
+  "environment_runs": [
+    {
+      "environment_id": "lbf",
+      "passed": true,
+      "implementation": "lb-foraging Gymnasium Foraging-8x8-2p-2f-v3",
+      "record_path": "validation/lbf.json"
+    },
+    {
+      "environment_id": "mpe",
+      "passed": true,
+      "implementation": "MPE2 simple_spread_v3 Parallel API",
+      "record_path": "validation/mpe-continuous.json"
+    },
+    {
+      "environment_id": "mpe",
+      "passed": true,
+      "implementation": "MPE2 simple_spread_v3 Parallel API",
+      "record_path": "validation/mpe-discrete.json"
+    }
+  ],
+  "baseline_runs": [],
+  "notes": [
+    "No training, baseline learning-curve reproduction or exact Sable reproduction was performed.",
+    "MPE smoke applies only to MPE2 1.1.1 and LBF smoke only to lbforaging 2.0.0; all other variants remain unrun."
+  ]
+}

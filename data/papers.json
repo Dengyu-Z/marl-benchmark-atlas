@@ -1,0 +1,311 @@
+[
+  {
+    "id": "sable",
+    "title": "Sable: a Performant, Efficient and Scalable Sequence Model for MARL",
+    "year": 2025,
+    "source_version": "ICML 2025; supplied arXiv v5",
+    "policy": "on-policy",
+    "paradigm": "centralized autoregressive execution",
+    "environments": [
+      "rware",
+      "lbf",
+      "connector",
+      "smax",
+      "mabrax",
+      "mpe",
+      "neom"
+    ],
+    "paper_url": "https://arxiv.org/abs/2410.01706",
+    "code_url": "https://github.com/instadeepai/Mava",
+    "evidence_location": "Section 4; Appendix B.1–B.7; Appendix C Tables 2–6; Appendix D",
+    "benchmark_note": "45 main tasks in six suites; NEOM and modified LBF are additional scaling experiments. Do not present the main Sable actor as a local-observation-only decentralized actor.",
+    "protocol_note": "Main protocol: 10 independent trials per task, 20M environment timesteps per run, 122 evaluation intervals, 32 episodes per interval. Task means and suite IQM use 95% bootstrap intervals. Main baselines: MAT, MAPPO, IPPO, MASAC, HASAC, QMIX; eligibility varies by action space.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "entropy-mechanism",
+    "title": "The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models",
+    "year": 2025,
+    "source_version": "supplied arXiv:2505.22617v1",
+    "policy": "background",
+    "paradigm": "single-agent language-model RL",
+    "environments": [],
+    "paper_url": "https://arxiv.org/abs/2505.22617",
+    "code_url": "https://github.com/PRIME-RL/Entropy-Mechanism-of-RL",
+    "evidence_location": "Title; Abstract; experimental sections",
+    "benchmark_note": "Reasoning-language-model RL; retained as conceptual background. It is not a MARL environment benchmark and is excluded from environment-coverage counts.",
+    "protocol_note": "Its benchmarks and training budgets are outside the MARL environment scope of this edition.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "cee",
+    "title": "Causality-Aware Efficient Exploration for Cooperative Multi-Agent Reinforcement Learning",
+    "year": 2026,
+    "source_version": "AAAI 2026",
+    "policy": "off-policy",
+    "paradigm": "CTDE; value decomposition",
+    "environments": [
+      "smac",
+      "smacv2",
+      "grf"
+    ],
+    "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/39071",
+    "code_url": null,
+    "evidence_location": "Experimental Setup, PDF p.5; Table 1 and Figures 3–5, pp.6–7",
+    "benchmark_note": "21 tasks: 4 SMAC, 15 SMACv2 and 2 Google Research Football tasks. Field-of-view restrictions create distinct SMACv2 evaluation settings.",
+    "protocol_note": "Task counts transcribed; full per-task budgets and seed identifiers are not transcribed in this edition.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "r3dm",
+    "title": "R3DM: Enabling Role Discovery and Diversity Through Dynamics Models in Multi-agent Reinforcement Learning",
+    "year": 2025,
+    "source_version": "ICML 2025 (printed proceedings header)",
+    "policy": "off-policy",
+    "paradigm": "CTDE; QMIX backbone",
+    "environments": [
+      "smac",
+      "smacv2"
+    ],
+    "paper_url": "https://github.com/UTAustin-SwarmLab/R3DM",
+    "code_url": "https://github.com/UTAustin-SwarmLab/R3DM",
+    "evidence_location": "Section 5, PDF pp.6–9; Appendix B",
+    "benchmark_note": "SMAC and SMACv2; records SC2 4.10 in the experimental setup. Keep unit compositions and game version with win-rate comparisons.",
+    "protocol_note": "Uses win rate and cumulative return; the full training budget and evaluation schedule remain to be transcribed.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "lazy-agents",
+    "title": "Lazy Agents: A New Perspective on Solving Sparse Reward Problem in Multi-agent Reinforcement Learning",
+    "year": 2023,
+    "source_version": "ICML 2023 (printed proceedings header)",
+    "policy": "off-policy",
+    "paradigm": "CTDE; QMIX backbone",
+    "environments": [
+      "smac",
+      "grf"
+    ],
+    "paper_url": null,
+    "code_url": null,
+    "evidence_location": "Section 5.1, PDF p.6; Appendices A.2–A.3",
+    "benchmark_note": "LAIES uses sparse-reward versions of SMAC and Google Research Football. A QMIX dense-reward curve is a distinct reward-setting comparison.",
+    "protocol_note": "Six random seeds are reported. Reward modifications must be preserved when reproducing the experiment.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "g-mat",
+    "title": "Learning group collaboration for efficient multi-agent reinforcement learning",
+    "year": 2026,
+    "source_version": "Knowledge-Based Systems 351, 116612",
+    "policy": "on-policy",
+    "paradigm": "group communication; sequential policy",
+    "environments": [
+      "smac",
+      "grf"
+    ],
+    "paper_url": "https://doi.org/10.1016/j.knosys.2026.116612",
+    "code_url": null,
+    "evidence_location": "Experiments and Testing Environment, PDF pp.5–6",
+    "benchmark_note": "StarCraft II / SMAC and Google Research Football. Grouping changes the policy communication topology; it does not define a new simulator family.",
+    "protocol_note": "Per-task training budgets and exact code release are not transcribed or verified in this edition.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "communication-priors",
+    "title": "Multi-Agent Reinforcement Learning with Communication-Constrained Priors",
+    "year": 2025,
+    "source_version": "NeurIPS 2025 (supplied conference PDF)",
+    "policy": "off-policy",
+    "paradigm": "CC-MADDPG; constrained communication",
+    "environments": [
+      "mpe"
+    ],
+    "paper_url": null,
+    "code_url": null,
+    "evidence_location": "Sections 5.1–5.2, PDF pp.6–8",
+    "benchmark_note": "MPE tasks with Markov-based and distance-based communication constraints. Message loss, corruption and the communication graph are experimental variables.",
+    "protocol_note": "Do not treat these modified communication tasks as the same experiment as unmodified simple_spread. Full task/config transcription is pending.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "rac",
+    "title": "In-Context Fully Decentralized Cooperative Multi-Agent Reinforcement Learning",
+    "year": 2025,
+    "source_version": "NeurIPS 2025",
+    "policy": "off-policy",
+    "paradigm": "fully decentralized; return-aware context",
+    "environments": [
+      "coordination-games",
+      "smac"
+    ],
+    "paper_url": "https://papers.neurips.cc/paper_files/paper/2025/hash/d925bda407ada0df3190df323a212661-Abstract-Conference.html",
+    "code_url": null,
+    "evidence_location": "Experiments, PDF p.7 onward; Appendix C",
+    "benchmark_note": "RAC evaluates matrix games, Predator and Prey, and SMAC. The Predator and Prey implementation is left unresolved here rather than silently equating it to MPE simple_tag.",
+    "protocol_note": "Reports median performance and standard error over five random seeds. Predator and Prey remains a paper-specific task entry in the paper card.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "magpo",
+    "title": "Multi-Agent Guided Policy Optimization",
+    "year": 2026,
+    "source_version": "ICLR 2026 (printed supplied PDF header)",
+    "policy": "on-policy",
+    "paradigm": "centralized guidance; decentralized actors",
+    "environments": [
+      "coordination-games",
+      "lbf",
+      "connector",
+      "mpe",
+      "rware",
+      "smax"
+    ],
+    "paper_url": "https://arxiv.org/abs/2507.18059",
+    "code_url": "https://github.com/liyheng/MAGPO",
+    "evidence_location": "Section 5, PDF pp.6–8; Appendix B; Appendix C",
+    "benchmark_note": "43 JAX tasks: CoordSum 4, LBF 7, Connector 4, MPE 3, RWARE 15, SMAX 10. CoordSum replaces MaBrax relative to Sable and SMAX counts differ.",
+    "protocol_note": "Centralized guidance and decentralized deployment must be recorded separately. This mapping does not import Sable hyperparameters into MAGPO.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "camar-paper",
+    "title": "CAMAR: Continuous Actions Multi-Agent Routing",
+    "year": 2026,
+    "source_version": "AAAI 2026",
+    "policy": "mixed",
+    "paradigm": "on-policy and off-policy baselines; planning",
+    "environments": [
+      "camar",
+      "vmas"
+    ],
+    "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/40209",
+    "code_url": "https://github.com/AIRI-Institute/CAMAR",
+    "evidence_location": "Experimental Evaluation and Evaluation Protocols, PDF pp.5–7",
+    "benchmark_note": "Continuous routing benchmark; VMAS is also used for a simulator scalability comparison. Simulator throughput and trained policy quality are separate measurements.",
+    "protocol_note": "Includes IPPO, MAPPO, IDDPG, MADDPG, ISAC and MASAC plus planning baselines. Record success, path quality and collisions; throughput depends on workload and hardware.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "aggregate-advantage",
+    "title": "Aggregate in the Advantage, Not the Ratio: A Canonical-Form Analysis of Cooperative Multi-Agent Policy Optimization",
+    "year": 2026,
+    "source_version": "supplied preprint arXiv:2607.17924v1",
+    "policy": "on-policy",
+    "paradigm": "PPO; graph-local aggregation",
+    "environments": [
+      "coordination-games",
+      "sumo-rl"
+    ],
+    "paper_url": "https://arxiv.org/abs/2607.17924",
+    "code_url": "https://github.com/RS2002/MAPO",
+    "evidence_location": "Section 4; Appendix C.1–C.3",
+    "benchmark_note": "Controlled graph-coupled games plus SUMO-RL traffic signals. Appendix C.3 uses a 28×7 grid with 196 signals; it is not a standard SMAC benchmark.",
+    "protocol_note": "Known coupling graphs and per-agent rewards are essential to this study. Preserve graph, reward support and ratio support separately.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "open-credit",
+    "title": "Challenges in Credit Assignment for Multi-Agent Reinforcement Learning in Open Agent Systems",
+    "year": null,
+    "source_version": "year/venue not independently established; supplied manuscript",
+    "policy": "mixed",
+    "paradigm": "DQN and MAPPO",
+    "environments": [
+      "open-wildfire"
+    ],
+    "paper_url": "https://github.com/bboyfury/openness_CAP",
+    "code_url": "https://github.com/bboyfury/openness_CAP",
+    "evidence_location": "Experimental study, PDF pp.3–5",
+    "benchmark_note": "Wildfire WS1 compares closed, agent-open and task-open settings. PistonBall is mentioned as preliminary model validation, not the principal openness benchmark.",
+    "protocol_note": "250 evaluation runs with a fixed seed of 42 are reported; that is not evidence of 250 independent training seeds.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "safe-marl",
+    "title": "Scalable Safe Multi-Agent Reinforcement Learning for Multi-Agent System",
+    "year": 2025,
+    "source_version": "supplied arXiv:2501.13727v2",
+    "policy": "on-policy",
+    "paradigm": "constrained actor-critic; graph policy",
+    "environments": [
+      "mpe"
+    ],
+    "paper_url": "https://arxiv.org/abs/2501.13727",
+    "code_url": null,
+    "evidence_location": "Section 5; safety and scalability appendices",
+    "benchmark_note": "SS-MARL modifies MPE for safety-aware cooperative navigation. Each agent has its own goal and costs are tracked separately from rewards.",
+    "protocol_note": "The paper uses 100-step episodes in the discussed safety experiment. Safety costs, thresholds, obstacle counts and population-size transfer must accompany reported return.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "dico",
+    "title": "Controlling Behavioral Diversity in Multi-Agent Reinforcement Learning",
+    "year": 2024,
+    "source_version": "ICML 2024",
+    "policy": "mixed",
+    "paradigm": "MADDPG/MAPPO through BenchMARL",
+    "environments": [
+      "vmas"
+    ],
+    "paper_url": "https://proceedings.mlr.press/v235/bettini24a.html",
+    "code_url": "https://github.com/proroklab/ControllingBehavioralDiversity",
+    "evidence_location": "Sections 6–7; Appendix A",
+    "benchmark_note": "VMAS tasks include multi-agent navigation and cooperative/competitive diversity studies. Parameter sharing and desired System Neural Diversity are experimental factors.",
+    "protocol_note": "BenchMARL and TorchRL are the reported training stack. Diversity is measured behaviorally; policy entropy alone is not the diversity metric.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "mmq",
+    "title": "Mitigating Relative Over-Generalization in Multi-Agent Reinforcement Learning",
+    "year": 2024,
+    "source_version": "supplied arXiv:2411.11099v1",
+    "policy": "off-policy",
+    "paradigm": "decentralized MaxMax Q-learning",
+    "environments": [
+      "coordination-games",
+      "mpe",
+      "mamujoco"
+    ],
+    "paper_url": "https://arxiv.org/abs/2411.11099",
+    "code_url": "https://github.com/Tingz0/Maxmax_Q_learning",
+    "evidence_location": "Section 5.1; Figure 3; Appendix A",
+    "benchmark_note": "Differential games, six modified MPE scenarios and MA-MuJoCo Half-Cheetah. RO-specific reward shaping changes the benchmark relative to default MPE.",
+    "protocol_note": "Distinguish joint-entry reward/solo-entry penalties, heterogeneous agents/targets, sequential tasks and the trained prey. Full budgets remain to be transcribed.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "id": "optimappo",
+    "title": "Optimistic Multi-Agent Policy Gradient",
+    "year": 2024,
+    "source_version": "ICML 2024",
+    "policy": "on-policy",
+    "paradigm": "optimistic MAPPO; CTDE",
+    "environments": [
+      "coordination-games",
+      "mamujoco",
+      "overcooked"
+    ],
+    "paper_url": "https://proceedings.mlr.press/v235/zhao24v.html",
+    "code_url": "https://github.com/wenshuaizhao/optimappo",
+    "evidence_location": "Sections 5.1–5.5; Appendix C",
+    "benchmark_note": "Repeated matrix games, Multi-Agent MuJoCo and Overcooked. Task-specific penalties in the didactic games probe relative overgeneralization.",
+    "protocol_note": "Do not replace MA-MuJoCo with MaBrax and retain the same reference scores. Preserve Overcooked layouts and sparse/shaped reward settings.",
+    "evidence_status": "literature_checked",
+    "checked_on": "2026-10-20"
+  }
+]

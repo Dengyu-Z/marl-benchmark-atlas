@@ -1,0 +1,19 @@
+id,name,kind,action_space,implementation,tags,runtime_status
+rware,RWARE / Robot Warehouse,online,discrete,Jumanji / original Python,sparse-reward;coordination;congestion;jax,not_run
+lbf,Level-Based Foraging,online,discrete,Jumanji / lb-foraging,sparse-reward;coordination;heterogeneity;jax,smoke_passed
+connector,Connector,online,discrete,Jumanji,coordination;routing;jax,not_run
+smax,SMAX,online,discrete,JaxMARL,coordination;heterogeneity;jax,not_run
+mabrax,MaBrax,online,continuous,JaxMARL + Brax,continuous-control;heterogeneity;jax,not_run
+mpe,MPE / MPE2,online,both,JaxMARL / MPE2 / historical MPE,coordination;communication;continuous-control,smoke_passed
+smac,SMAC,online,discrete,StarCraft II + SMAC,coordination;heterogeneity;combat,not_run
+smacv2,SMACv2,online,discrete,StarCraft II + SMACv2,coordination;heterogeneity;population-generalization;combat,not_run
+mamujoco,Multi-Agent MuJoCo,online,continuous,MA-MuJoCo / Gymnasium-Robotics variants,continuous-control;heterogeneity,not_run
+vmas,VMAS,online,both,PyTorch vectorized simulator,coordination;behavioral-diversity;continuous-control;vectorized,not_run
+grf,Google Research Football,online,discrete,Football engine + Python wrappers,sparse-reward;coordination;sports,not_run
+overcooked,Overcooked,online,discrete,overcooked_ai and paper wrappers,coordination;role-specialization;partner-generalization,not_run
+camar,CAMAR,online,continuous,CAMAR,routing;continuous-control;heterogeneity,not_run
+coordination-games,Didactic coordination games,paper-specific,both,paper-specific implementations,mechanism-diagnosis;relative-overgeneralization;credit-assignment,not_run
+open-wildfire,Open-system Wildfire,paper-specific,unknown,openness_CAP / Wildfire WS1,agent-openness;task-openness;credit-assignment,not_run
+sumo-rl,SUMO-RL traffic signals,online,discrete,SUMO + sumo-rl,graph-coupling;credit-assignment;traffic,not_run
+og-marl,OG-MARL,offline-dataset,both,offline dataset collection + baseline code,offline-rl;dataset-quality;coverage,not_run
+neom,NEOM (Sable scalability task),paper-specific,discrete,Sable paper/code,scalability;coordination,not_run

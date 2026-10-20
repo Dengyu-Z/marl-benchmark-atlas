@@ -1,0 +1,130 @@
+[
+  {
+    "paper_id": "sable",
+    "input_filename": "01-sable.pdf",
+    "sha256": "756d26281f89b9670065a1cefea176254207b4f551a5b4724cc91d0423db08f5",
+    "evidence_location": "Section 4; Appendix B.1–B.7; Appendix C Tables 2–6; Appendix D",
+    "public_source": "https://arxiv.org/abs/2410.01706",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "entropy-mechanism",
+    "input_filename": "02-The-Entropy-Mechanism-of-Reinforcement-Learning.pdf",
+    "sha256": "8663280efe90c34f801776cbe5051dd3b700327d27940310e3a17f183e5f4f51",
+    "evidence_location": "Title; Abstract; experimental sections",
+    "public_source": "https://arxiv.org/abs/2505.22617",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "cee",
+    "input_filename": "03-03612-AAAI26.CaoH-ML.pdf",
+    "sha256": "547b02902fefde25ab324073e2126d8136b525d746590127072e839f0712c787",
+    "evidence_location": "Experimental Setup, PDF p.5; Table 1 and Figures 3–5, pp.6–7",
+    "public_source": "https://ojs.aaai.org/index.php/AAAI/article/view/39071",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "r3dm",
+    "input_filename": "04-7359_R3DM_Enabling_Role_Discov.pdf",
+    "sha256": "d40924091284aabd0a08178af8c07b7d634e6eb0856d6e43f64a2dda91eab56f",
+    "evidence_location": "Section 5, PDF pp.6–9; Appendix B",
+    "public_source": "https://github.com/UTAustin-SwarmLab/R3DM",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "lazy-agents",
+    "input_filename": "05-Lazy-Agents.pdf",
+    "sha256": "9e860ab2bd28d919ac0950c653a479fdbe2f1c3a3b7392a0a66811a199256f66",
+    "evidence_location": "Section 5.1, PDF p.6; Appendices A.2–A.3",
+    "public_source": null,
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "g-mat",
+    "input_filename": "06-Learning-group-collaboration-for-efficient-multi-agent-reinforcement.pdf",
+    "sha256": "533594dfb6916e03f1452a0e8d0c4a5da9e030e00535a43972da8ef366753da5",
+    "evidence_location": "Experiments and Testing Environment, PDF pp.5–6",
+    "public_source": "https://doi.org/10.1016/j.knosys.2026.116612",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "communication-priors",
+    "input_filename": "07-NeurIPS-2025-multi-agent-reinforcement-learning-with-communication-constrained-priors-Paper-Conference.pdf",
+    "sha256": "601e1e6fa4a6701b587d156c5ccec21047c4812874ad6689781bc5ef76e91b47",
+    "evidence_location": "Sections 5.1–5.2, PDF pp.6–8",
+    "public_source": null,
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "rac",
+    "input_filename": "08-Return-Aware-Context.pdf",
+    "sha256": "0f6a80e0535ad30d77cc104c49d4b87ec5ddadeb894b9e071dfda4a1c748b041",
+    "evidence_location": "Experiments, PDF p.7 onward; Appendix C",
+    "public_source": "https://papers.neurips.cc/paper_files/paper/2025/hash/d925bda407ada0df3190df323a212661-Abstract-Conference.html",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "magpo",
+    "input_filename": "09-4255_Multi_Agent_Guided_Policy.pdf",
+    "sha256": "8b0abe359f0967c08140183b63f056954f8d339ce0ee1f449c1adeccb60981e5",
+    "evidence_location": "Section 5, PDF pp.6–8; Appendix B; Appendix C",
+    "public_source": "https://arxiv.org/abs/2507.18059",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "camar-paper",
+    "input_filename": "10-25068-AAAI26.PshenitsynA-MS.pdf",
+    "sha256": "69bceae88ec6bda013aad0b0b22bd7bb13398f55068259c1616db68b77071cf7",
+    "evidence_location": "Experimental Evaluation and Evaluation Protocols, PDF pp.5–7",
+    "public_source": "https://ojs.aaai.org/index.php/AAAI/article/view/40209",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "aggregate-advantage",
+    "input_filename": "11-AGGREGATE-IN-THE-ADVANTAGE-NOT-THE-RATIO.pdf",
+    "sha256": "499c907e369a03af9dfed67678d9d97041725531b71a4252ad67f044acfb486d",
+    "evidence_location": "Section 4; Appendix C.1–C.3",
+    "public_source": "https://arxiv.org/abs/2607.17924",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "open-credit",
+    "input_filename": "12-Challenges-in-Credit-Assignment-for-Multi-Agent-ReinforcementLearning-in-Open-Agent-Systems.pdf",
+    "sha256": "d61a7556d01b35536e6a3430dce0ae615f06c7a9a3b57c43d4d9555c7834d14d",
+    "evidence_location": "Experimental study, PDF pp.3–5",
+    "public_source": "https://github.com/bboyfury/openness_CAP",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "safe-marl",
+    "input_filename": "13-Scalable-Safe-Multi-Agent-Reinforcement-Learning-for-Multi-Agent-System.pdf",
+    "sha256": "647996d833c035a0705a3b4c641c996c138144fbae39611e0415628889465987",
+    "evidence_location": "Section 5; safety and scalability appendices",
+    "public_source": "https://arxiv.org/abs/2501.13727",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "dico",
+    "input_filename": "14-bettini24a.pdf",
+    "sha256": "bdaaeb1155e46becbf2b01478e7448a9e98077896b5f63f1576266bed920dc42",
+    "evidence_location": "Sections 6–7; Appendix A",
+    "public_source": "https://proceedings.mlr.press/v235/bettini24a.html",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "mmq",
+    "input_filename": "15-Mitigating-Relative-Over-Generalization-in-Multi-Agent.pdf",
+    "sha256": "8e0784924e69fc977c531c817b01950b1ae46b9886e4de86cc23c0b6c9e87b7a",
+    "evidence_location": "Section 5.1; Figure 3; Appendix A",
+    "public_source": "https://arxiv.org/abs/2411.11099",
+    "checked_on": "2026-10-20"
+  },
+  {
+    "paper_id": "optimappo",
+    "input_filename": "16-zhao24v.pdf",
+    "sha256": "8881a6a98b4adeb05ed82fd4c08ea793a67fc669e2b78dc01e9047d6f094d4c8",
+    "evidence_location": "Sections 5.1–5.5; Appendix C",
+    "public_source": "https://proceedings.mlr.press/v235/zhao24v.html",
+    "checked_on": "2026-10-20"
+  }
+]

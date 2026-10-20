@@ -1,0 +1,53 @@
+{
+  "record_type": "random_policy_smoke",
+  "environment_id": "mpe",
+  "implementation": "MPE2 simple_spread_v3 Parallel API",
+  "passed": true,
+  "config": {
+    "N": 3,
+    "local_ratio": 0.5,
+    "max_cycles": 25,
+    "continuous_actions": true,
+    "action_spaces": {
+      "agent_0": "Box(0.0, 1.0, (5,), float32)",
+      "agent_1": "Box(0.0, 1.0, (5,), float32)",
+      "agent_2": "Box(0.0, 1.0, (5,), float32)"
+    },
+    "observation_spaces": {
+      "agent_0": "Box(-inf, inf, (18,), float32)",
+      "agent_1": "Box(-inf, inf, (18,), float32)",
+      "agent_2": "Box(-inf, inf, (18,), float32)"
+    }
+  },
+  "episodes": [
+    {
+      "seed": 0,
+      "joint_steps": 25,
+      "per_agent_return": {
+        "agent_0": -28.985931140876723,
+        "agent_1": -28.985931140876723,
+        "agent_2": -28.985931140876723
+      }
+    },
+    {
+      "seed": 1,
+      "joint_steps": 25,
+      "per_agent_return": {
+        "agent_0": -29.344656431481525,
+        "agent_1": -29.344656431481525,
+        "agent_2": -29.344656431481525
+      }
+    }
+  ],
+  "versions": {
+    "mpe2": "1.1.1",
+    "pettingzoo": "1.27.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.5.4",
+    "pygame-ce": "2.5.8"
+  },
+  "python": "3.12.14",
+  "platform": "Linux x86_64",
+  "timestamp_utc": "2026-10-20T12:00:47.515495+00:00",
+  "scope": "reset/step/action-space compatibility only; no policy trained"
+}
