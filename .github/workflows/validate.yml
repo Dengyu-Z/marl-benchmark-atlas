@@ -1,0 +1,26 @@
+name: Validate catalog
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Check catalog relationships and local links
+        run: python scripts/validate_catalog.py
+      - name: Check generated indexes and CSV
+        run: python scripts/build_catalog.py --check
+      - name: Check Python syntax
+        run: python -m compileall -q scripts examples
+      - name: Exercise the offline query
+        run: python scripts/atlas.py --paper sable --json
