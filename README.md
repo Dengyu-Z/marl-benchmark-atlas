@@ -26,6 +26,8 @@ This atlas starts from **Sable's six-suite benchmark**, then connects it to a cu
 
 | I want to… | Go to |
 | --- | --- |
+| Understand what the tasks actually are | [Visual overview / 中文图解](docs/environment-overview.zh-CN.md) |
+| Match an algorithm to action and information requirements | [Algorithm compatibility](docs/algorithm-fit.md) |
 | Pick an environment for a research question | [Selection guide](docs/selection-guide.md) / [中文选型指南](docs/selection-guide.zh-CN.md) |
 | See the complete resource table | [Environment and dataset index](docs/environment-index.md) |
 | Find a paper's environments and policy regime | [Paper → environment index](docs/paper-index.md) |
@@ -34,6 +36,14 @@ This atlas starts from **Sable's six-suite benchmark**, then connects it to a cu
 | Check what has actually been run | [Verification ledger](docs/verification.md) |
 | Avoid an invalid comparison | [Version and protocol traps](docs/comparability.md) |
 | Reuse the data | [JSON/CSV catalog](data/README.md) and [offline CLI](#query-the-catalog-offline) |
+
+## Understand the tasks first
+
+![Conceptual sketches of six environment families, not simulator screenshots](assets/environments-at-a-glance.svg)
+
+Warehouse robots deliver shelves; LBF agents jointly collect food; Connector agents draw paths without blocking each other; SMAX units coordinate attacks; MaBrax controllers share a robot's joints; MPE simple_spread particles divide up landmarks.
+
+Start with **action type**, then check observation/history, cooperation/rewards, agent heterogeneity, training/execution information, data access and budget. [The compatibility guide](docs/algorithm-fit.md) explains why standard QMIX needs discrete actions while MAPPO, HAPPO and HARL HASAC support both through the appropriate implementations. Compatibility does not predict the best return.
 
 ## Sable at a glance
 
@@ -81,8 +91,8 @@ Use an isolated environment. The smoke script samples random actions and writes 
 
 ```bash
 python -m venv .venv
-# Linux/macOS: source .venv/bin/activate
-# Windows PowerShell: .\.venv\Scripts\Activate.ps1
+source .venv/bin/activate
+# Windows PowerShell: replace the line above with .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements/smoke.txt
 python examples/mpe_smoke.py --output runs/mpe.json
 python examples/mpe_smoke.py --continuous --output runs/mpe-continuous.json

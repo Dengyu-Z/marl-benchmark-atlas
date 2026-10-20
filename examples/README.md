@@ -8,8 +8,8 @@ These scripts sample random actions. They check the installed API and never trai
 
 ```bash
 python -m venv .venv
-# Linux/macOS: source .venv/bin/activate
-# Windows PowerShell: .\.venv\Scripts\Activate.ps1
+source .venv/bin/activate
+# Windows PowerShell: replace the line above with .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements/smoke.txt
 python examples/mpe_smoke.py --agents 3 --episodes 2 --output runs/mpe.json
 python examples/mpe_smoke.py --continuous --output runs/mpe-continuous.json

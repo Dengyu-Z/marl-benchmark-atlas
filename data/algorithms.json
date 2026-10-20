@@ -1,0 +1,83 @@
+[
+  {
+    "id": "qmix",
+    "name": "QMIX",
+    "actions": [
+      "discrete"
+    ],
+    "policy": "off-policy",
+    "scope": "Standard discrete QMIX; cooperative team objective",
+    "note_zh": "逐动作输出 Q 值，再混合各智能体的值；连续力矩不能直接枚举。需要合作团队目标、混合网络输入与可用动作处理。",
+    "source": "https://github.com/facebookresearch/BenchMARL"
+  },
+  {
+    "id": "vdn",
+    "name": "VDN",
+    "actions": [
+      "discrete"
+    ],
+    "policy": "off-policy",
+    "scope": "Standard discrete VDN; cooperative value decomposition",
+    "note_zh": "标准离散价值分解方法；合作目标与奖励聚合要匹配。不要与连续扩展方法混为同一个实现。",
+    "source": "https://github.com/facebookresearch/BenchMARL"
+  },
+  {
+    "id": "mappo",
+    "name": "MAPPO",
+    "actions": [
+      "discrete",
+      "continuous"
+    ],
+    "policy": "on-policy",
+    "scope": "MAPPO implementations with Categorical / Gaussian policy heads",
+    "note_zh": "离散动作使用类别分布，连续动作使用连续策略分布；还要检查集中 critic 输入、共享参数与实际部署时的 actor 输入。",
+    "source": "https://github.com/PKU-MARL/HARL"
+  },
+  {
+    "id": "happo",
+    "name": "HAPPO",
+    "actions": [
+      "discrete",
+      "continuous"
+    ],
+    "policy": "on-policy",
+    "scope": "HARL HAPPO; compatible environment wrapper required",
+    "note_zh": "HARL 支持离散、连续和 MultiDiscrete；需要正确策略头、顺序更新和环境接口。支持异质策略不保证某个任务上更优。",
+    "source": "https://github.com/PKU-MARL/HARL"
+  },
+  {
+    "id": "hasac",
+    "name": "HASAC",
+    "actions": [
+      "discrete",
+      "continuous"
+    ],
+    "policy": "off-policy",
+    "scope": "HARL HASAC; discrete / continuous code branches",
+    "note_zh": "官方 HARL 列明两类都支持；代码对 Box 使用 SquashedGaussianPolicy，对离散动作使用离散策略分支。不能把 Mava 的连续 HASAC 配置当作所有实现的能力。",
+    "source": "https://github.com/PKU-MARL/HARL"
+  },
+  {
+    "id": "maddpg",
+    "name": "MADDPG",
+    "actions": [
+      "continuous"
+    ],
+    "policy": "off-policy",
+    "scope": "Standard continuous-action MADDPG in HARL / BenchMARL",
+    "note_zh": "这里指常见确定性连续动作实现；离散动作的松弛或扩展需要另行实现与标注，不能直接视作同一接口。",
+    "source": "https://github.com/facebookresearch/BenchMARL"
+  },
+  {
+    "id": "masac",
+    "name": "MASAC",
+    "actions": [
+      "discrete",
+      "continuous"
+    ],
+    "policy": "off-policy",
+    "scope": "BenchMARL MASAC with action-specific policy/critic implementation",
+    "note_zh": "BenchMARL 标注两类都支持；普通连续 SAC 的代码不能只改环境名称就成为离散 SAC。",
+    "source": "https://github.com/facebookresearch/BenchMARL"
+  }
+]

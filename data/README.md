@@ -5,6 +5,7 @@
 | File | Contents | Maintained how |
 | --- | --- | --- |
 | [environments.json](environments.json) | Resource types, actions, implementations, tags, upstreams, caveats and paper links | Canonical JSON |
+| [algorithms.json](algorithms.json) | Action compatibility, on/off-policy regime, implementation scope and primary sources for 7 methods | Canonical JSON |
 | [papers.json](papers.json) | Paper metadata, policy regime, training/execution paradigm, mappings and source locators | Canonical JSON |
 | [sable_tasks.json](sable_tasks.json) | 45 main-benchmark paper labels with suite and action type | Canonical JSON |
 | [source_manifest.json](source_manifest.json) | Supplied PDF names, SHA-256 hashes and evidence locators | Provenance |
@@ -25,6 +26,9 @@
 - `runtime_status`: `not_run`, `smoke_passed` or `baseline_reproduced`. For `smoke_passed`, inspect the ledger: it applies only to the named implementation/configuration, not every variant in that family.
 - `paper_task_label`: a paper table label with normalized typography, not a tested API registration string.
 - `checked_on`: the curation date. Package versions of actual runs live in the validation records.
+- `beginner`: who the agents are, their goal, concrete actions, scoped reward timing, and candidate baselines explained in Chinese.
+- `beginner.reward_density`: descriptive and task-scoped, never a measured difficulty score. `config-dependent` and `unknown` preserve unresolved details.
+- Algorithm candidate filters check an intersection of supported action types and the requested variant; they are not predictions of learning performance or completed integrations.
 
 Regenerate indexes and CSV after JSON changes:
 

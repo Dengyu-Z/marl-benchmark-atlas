@@ -1,19 +1,19 @@
-id,name,kind,action_space,implementation,tags,runtime_status
-rware,RWARE / Robot Warehouse,online,discrete,Jumanji / original Python,sparse-reward;coordination;congestion;jax,not_run
-lbf,Level-Based Foraging,online,discrete,Jumanji / lb-foraging,sparse-reward;coordination;heterogeneity;jax,smoke_passed
-connector,Connector,online,discrete,Jumanji,coordination;routing;jax,not_run
-smax,SMAX,online,discrete,JaxMARL,coordination;heterogeneity;jax,not_run
-mabrax,MaBrax,online,continuous,JaxMARL + Brax,continuous-control;heterogeneity;jax,not_run
-mpe,MPE / MPE2,online,both,JaxMARL / MPE2 / historical MPE,coordination;communication;continuous-control,smoke_passed
-smac,SMAC,online,discrete,StarCraft II + SMAC,coordination;heterogeneity;combat,not_run
-smacv2,SMACv2,online,discrete,StarCraft II + SMACv2,coordination;heterogeneity;population-generalization;combat,not_run
-mamujoco,Multi-Agent MuJoCo,online,continuous,MA-MuJoCo / Gymnasium-Robotics variants,continuous-control;heterogeneity,not_run
-vmas,VMAS,online,both,PyTorch vectorized simulator,coordination;behavioral-diversity;continuous-control;vectorized,not_run
-grf,Google Research Football,online,discrete,Football engine + Python wrappers,sparse-reward;coordination;sports,not_run
-overcooked,Overcooked,online,discrete,overcooked_ai and paper wrappers,coordination;role-specialization;partner-generalization,not_run
-camar,CAMAR,online,continuous,CAMAR,routing;continuous-control;heterogeneity,not_run
-coordination-games,Didactic coordination games,paper-specific,both,paper-specific implementations,mechanism-diagnosis;relative-overgeneralization;credit-assignment,not_run
-open-wildfire,Open-system Wildfire,paper-specific,unknown,openness_CAP / Wildfire WS1,agent-openness;task-openness;credit-assignment,not_run
-sumo-rl,SUMO-RL traffic signals,online,discrete,SUMO + sumo-rl,graph-coupling;credit-assignment;traffic,not_run
-og-marl,OG-MARL,offline-dataset,both,offline dataset collection + baseline code,offline-rl;dataset-quality;coverage,not_run
-neom,NEOM (Sable scalability task),paper-specific,discrete,Sable paper/code,scalability;coordination,not_run
+id,name,kind,action_space,implementation,tags,runtime_status,agents_zh,goal_zh,reward_density
+rware,RWARE / Robot Warehouse,online,discrete,Jumanji / original Python,sparse-reward;coordination;congestion;jax,not_run,搬货机器人,在仓库里取出指定货架，送到配送口，再继续取货。,sparse
+lbf,Level-Based Foraging,online,discrete,Jumanji / lb-foraging,sparse-reward;coordination;heterogeneity;jax,smoke_passed,有不同等级的采集者,在网格里找食物；单人搬不动时，多人靠近并共同 LOAD。,sparse
+connector,Connector,online,discrete,Jumanji,coordination;routing;jax,not_run,各自画一条线的路径头,从各自起点连到各自终点；已经画过的线会挡住其他路径。,mixed
+smax,SMAX,online,discrete,JaxMARL,coordination;heterogeneity;jax,not_run,战斗小队中的己方单位,配合走位、集火和攻击时机，击败敌方队伍。,mixed
+mabrax,MaBrax,online,continuous,JaxMARL + Brax,continuous-control;heterogeneity;jax,not_run,同一个机器人不同关节的控制器,多个控制器共同让机器人前进，并控制能耗与姿态。,dense
+mpe,MPE / MPE2,online,both,JaxMARL / MPE2 / historical MPE,coordination;communication;continuous-control,smoke_passed,二维平面上移动的小圆点,以 simple_spread 为例：分工覆盖所有地标，同时减少相互碰撞。,dense
+smac,SMAC,online,discrete,StarCraft II + SMAC,coordination;heterogeneity;combat,not_run,SC2 游戏引擎中的己方作战单位,协同击败内置 AI 控制的敌军；训练的是己方团队。,config-dependent
+smacv2,SMACv2,online,discrete,StarCraft II + SMACv2,coordination;heterogeneity;population-generalization;combat,not_run,随机生成队伍中的己方作战单位,在随机单位构成和初始位置下击败敌队，学习更稳健的配合。,config-dependent
+mamujoco,Multi-Agent MuJoCo,online,continuous,MA-MuJoCo / Gymnasium-Robotics variants,continuous-control;heterogeneity,not_run,MuJoCo 机器人各部分的控制器,共同控制一个机器人运动；例如不同智能体控制不同腿或关节组。,dense
+vmas,VMAS,online,both,PyTorch vectorized simulator,coordination;behavioral-diversity;continuous-control;vectorized,not_run,二维模拟器里的机器人或移动实体,不是一个固定游戏；任务可以是导航、搬运、协作覆盖或竞争。,config-dependent
+grf,Google Research Football,online,discrete,Football engine + Python wrappers,sparse-reward;coordination;sports,not_run,足球场上由算法控制的球员,通过跑位、传球、配合和射门，在指定足球场景中完成目标。,config-dependent
+overcooked,Overcooked,online,discrete,overcooked_ai and paper wrappers,coordination;role-specialization;partner-generalization,not_run,合作厨房里的两名厨师,分工拿食材、做汤、装盘和送餐，减少互相挡路。,config-dependent
+camar,CAMAR,online,continuous,CAMAR,routing;continuous-control;heterogeneity,not_run,要穿过障碍到达终点的移动机器人,让多个机器人分别到达目标，同时控制碰撞、路径和耗时。,config-dependent
+coordination-games,Didactic coordination games,paper-specific,both,paper-specific implementations,mechanism-diagnosis;relative-overgeneralization;credit-assignment,not_run,选择数字或小博弈动作的决策者,通过联合动作获得高收益，用可控例子分析协调失败。,config-dependent
+open-wildfire,Open-system Wildfire,paper-specific,unknown,openness_CAP / Wildfire WS1,agent-openness;task-openness;credit-assignment,not_run,野火管理场景中的协作智能体,应对火情，同时处理智能体加入／离开或任务变化。,unknown
+sumo-rl,SUMO-RL traffic signals,online,discrete,SUMO + sumo-rl,graph-coupling;credit-assignment;traffic,not_run,道路网络中控制信号灯的路口控制器,调节交通灯，让网络里的排队和等待下降。,config-dependent
+og-marl,OG-MARL,offline-dataset,both,offline dataset collection + baseline code,offline-rl;dataset-quality;coverage,not_run,已经记录好的多智能体轨迹中的行为主体,用已有轨迹学习新策略；训练时未必允许重新向环境采样。,dataset-dependent
+neom,NEOM (Sable scalability task),paper-specific,discrete,Sable paper/code,scalability;coordination,not_run,共同拼出一维数值图案的位置／决策者,让所有人的离散选择拼成指定的周期图案，用于人数扩展实验。,mixed

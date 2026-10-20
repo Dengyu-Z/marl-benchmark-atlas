@@ -4,6 +4,23 @@
 
 Small games isolate coordination failures and relative overgeneralization. / 用可控小博弈隔离协作与相对过度泛化机制。
 
+## 先看懂这个环境
+
+| 你要知道什么 | 直观解释 |
+| --- | --- |
+| 智能体是谁 | 选择数字或小博弈动作的决策者 |
+| 要完成什么 | 通过联合动作获得高收益，用可控例子分析协调失败。 |
+| 每一步做什么 | 矩阵博弈选行／列；CoordSum 选数字；微分博弈输出连续控制。 |
+| 动作到底是哪类 | 这个分类中有离散也有连续；每种游戏要单独定义。 |
+| 奖励何时出现 | 收益直接由 payoff table、上下文或已知耦合图决定。 |
+| 可先比较的算法 | 离散游戏可测 QMIX／PPO 类；连续游戏选连续策略。已知最优解适合机制诊断，不代表复杂任务性能。 |
+
+适用范围：教学／诊断任务的集合，不是统一的可比环境。
+
+这里的算法名称表示**可检查的候选接口**，不是性能排名，也不代表已经跑通。动作类型只是第一道筛选；继续看[算法适配指南](../algorithm-fit.zh-CN.md)。
+
+## Implementation and evidence
+
 | Field | This entry |
 | --- | --- |
 | Resource type | paper-specific |

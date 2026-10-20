@@ -4,6 +4,23 @@
 
 Two cooks coordinate ingredient preparation, cooking and delivery. / 两名厨师协同备料、烹饪与送餐。
 
+## 先看懂这个环境
+
+| 你要知道什么 | 直观解释 |
+| --- | --- |
+| 智能体是谁 | 合作厨房里的两名厨师 |
+| 要完成什么 | 分工拿食材、做汤、装盘和送餐，减少互相挡路。 |
+| 每一步做什么 | 从走动、等待、交互等命令中选一个。 |
+| 动作到底是哪类 | 离散；任务由布局和规则决定。 |
+| 奖励何时出现 | 最终送餐奖励与训练时的辅助塑形奖励要分开记录。 |
+| 可先比较的算法 | MAPPO／HAPPO；离散价值分解方法也需合作奖励与对应 wrapper。适合显式设计队友泛化实验。 |
+
+适用范围：Overcooked-AI 布局任务；不等同于 OvercookedV2。
+
+这里的算法名称表示**可检查的候选接口**，不是性能排名，也不代表已经跑通。动作类型只是第一道筛选；继续看[算法适配指南](../algorithm-fit.zh-CN.md)。
+
+## Implementation and evidence
+
 | Field | This entry |
 | --- | --- |
 | Resource type | online |

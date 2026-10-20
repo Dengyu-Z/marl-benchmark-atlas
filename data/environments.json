@@ -34,7 +34,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/rware.md"
+    "card": "docs/environments/rware.md",
+    "beginner": {
+      "agents_zh": "搬货机器人",
+      "goal_zh": "在仓库里取出指定货架，送到配送口，再继续取货。",
+      "action_example_zh": "从停止、前进、左转、右转、装卸货架中选一个。",
+      "action_scope_zh": "离散：5 个命令；不是输出前进距离。",
+      "reward_density": "sparse",
+      "reward_explanation_zh": "配送成功才得到任务奖励；长时间没有成功配送就可能没有正奖励。",
+      "scope_zh": "RWARE 配送任务；Sable 附录 B.1。",
+      "baseline_candidates_zh": "MAPPO／HAPPO；使用合作团队目标与相应接口时也可比较 QMIX／VDN。"
+    }
   },
   {
     "id": "lbf",
@@ -71,7 +81,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "smoke_passed",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/lbf.md"
+    "card": "docs/environments/lbf.md",
+    "beginner": {
+      "agents_zh": "有不同等级的采集者",
+      "goal_zh": "在网格里找食物；单人搬不动时，多人靠近并共同 LOAD。",
+      "action_example_zh": "从停止、上下左右、LOAD 中选一个。",
+      "action_scope_zh": "离散：每个智能体 6 个命令。",
+      "reward_density": "sparse",
+      "reward_explanation_zh": "采集到食物才有奖励；是不是必须合作由食物等级和 force_coop 决定。",
+      "scope_zh": "原版 LBF 与 Sable 采集任务；参数和奖励归一化仍需分别记录。",
+      "baseline_candidates_zh": "MAPPO／HAPPO／QMIX／VDN；HASAC 需使用 HARL 的离散动作分支和适配环境。"
+    }
   },
   {
     "id": "connector",
@@ -103,7 +123,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/connector.md"
+    "card": "docs/environments/connector.md",
+    "beginner": {
+      "agents_zh": "各自画一条线的路径头",
+      "goal_zh": "从各自起点连到各自终点；已经画过的线会挡住其他路径。",
+      "action_example_zh": "从停止、上下左右中选一个。",
+      "action_scope_zh": "离散：5 个命令。",
+      "reward_density": "mixed",
+      "reward_explanation_zh": "Sable 设置中，接通给奖励，接通前有步数惩罚；不是纯粹零奖励直到成功。",
+      "scope_zh": "Sable 附录 B.4 的局部观测与奖励设置。",
+      "baseline_candidates_zh": "MAPPO／HAPPO／QMIX；要统一团队目标、局部观测 wrapper 和奖励聚合。"
+    }
   },
   {
     "id": "smax",
@@ -135,7 +165,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/smax.md"
+    "card": "docs/environments/smax.md",
+    "beginner": {
+      "agents_zh": "战斗小队中的己方单位",
+      "goal_zh": "配合走位、集火和攻击时机，击败敌方队伍。",
+      "action_example_zh": "选择移动、停止或攻击某个敌人。",
+      "action_scope_zh": "离散：攻击目标数量影响动作数量；还需检查可用动作 mask。",
+      "reward_density": "mixed",
+      "reward_explanation_zh": "Sable 同时奖励战斗伤害与最终胜利。",
+      "scope_zh": "JaxMARL 的 SMAX；不能用 SC2 引擎结果代替。",
+      "baseline_candidates_zh": "MAPPO／HAPPO／QMIX；保持攻击可用性 mask 与同一单位生成器。"
+    }
   },
   {
     "id": "mabrax",
@@ -166,7 +206,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/mabrax.md"
+    "card": "docs/environments/mabrax.md",
+    "beginner": {
+      "agents_zh": "同一个机器人不同关节的控制器",
+      "goal_zh": "多个控制器共同让机器人前进，并控制能耗与姿态。",
+      "action_example_zh": "每个控制器输出其负责关节的力矩数值。",
+      "action_scope_zh": "连续：一个实数向量；动作维度取决于关节划分。",
+      "reward_density": "dense",
+      "reward_explanation_zh": "通常每步都有前进和控制代价相关反馈。",
+      "scope_zh": "Sable 附录 B.6 的 JaxMARL／Brax 机器人任务。",
+      "baseline_candidates_zh": "连续动作 MAPPO／HAPPO／HASAC／MADDPG；标准离散 QMIX 不能直接接力矩向量。"
+    }
   },
   {
     "id": "mpe",
@@ -209,7 +259,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "smoke_passed",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/mpe.md"
+    "card": "docs/environments/mpe.md",
+    "beginner": {
+      "agents_zh": "二维平面上移动的小圆点",
+      "goal_zh": "以 simple_spread 为例：分工覆盖所有地标，同时减少相互碰撞。",
+      "action_example_zh": "离散版选择方向；连续版输出各方向的控制强度。",
+      "action_scope_zh": "两种版本都有；Sable 使用连续版，MPE2 默认可设为离散。",
+      "reward_density": "dense",
+      "reward_explanation_zh": "simple_spread 根据地标距离和碰撞给反馈，回报通常可以是负数。",
+      "scope_zh": "密集奖励说明只针对 simple_spread；不能推广到所有 MPE 场景。",
+      "baseline_candidates_zh": "MAPPO／HAPPO 两种动作都可；QMIX 选离散版；MADDPG 选连续版；HARL HASAC 有两种分支。"
+    }
   },
   {
     "id": "smac",
@@ -244,7 +304,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/smac.md"
+    "card": "docs/environments/smac.md",
+    "beginner": {
+      "agents_zh": "SC2 游戏引擎中的己方作战单位",
+      "goal_zh": "协同击败内置 AI 控制的敌军；训练的是己方团队。",
+      "action_example_zh": "选择移动、停止、攻击等命令，并使用可用动作 mask。",
+      "action_scope_zh": "离散；每张地图的单位和动作数量不同。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "可用稠密战斗奖励或稀疏胜利奖励，必须看论文配置。",
+      "scope_zh": "原版 SMAC；SC2 游戏版本、地图与奖励模式都是任务定义的一部分。",
+      "baseline_candidates_zh": "MAPPO／HAPPO／QMIX 等离散合作方法；先完成 SC2 与地图安装。"
+    }
   },
   {
     "id": "smacv2",
@@ -277,7 +347,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/smacv2.md"
+    "card": "docs/environments/smacv2.md",
+    "beginner": {
+      "agents_zh": "随机生成队伍中的己方作战单位",
+      "goal_zh": "在随机单位构成和初始位置下击败敌队，学习更稳健的配合。",
+      "action_example_zh": "选择移动或攻击目标，可用动作随战况变化。",
+      "action_scope_zh": "离散；人数、单位类型和 mask 需逐配置核查。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "战斗奖励、胜利奖励与视野设置由具体配置决定。",
+      "scope_zh": "SC2 引擎版 SMACv2；不是 SMAX 中名称相似的任务。",
+      "baseline_candidates_zh": "MAPPO／HAPPO／QMIX；同时固定种族、生成分布、视野和评估种子。"
+    }
   },
   {
     "id": "mamujoco",
@@ -312,7 +392,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/mamujoco.md"
+    "card": "docs/environments/mamujoco.md",
+    "beginner": {
+      "agents_zh": "MuJoCo 机器人各部分的控制器",
+      "goal_zh": "共同控制一个机器人运动；例如不同智能体控制不同腿或关节组。",
+      "action_example_zh": "输出关节控制量／力矩向量。",
+      "action_scope_zh": "连续；维度由机器人和关节分组决定。",
+      "reward_density": "dense",
+      "reward_explanation_zh": "常见运动任务逐步给予前进、存活或控制代价反馈，具体组成随任务变化。",
+      "scope_zh": "本文指运动控制任务；版本与 MaBrax 不可直接互换。",
+      "baseline_candidates_zh": "连续动作 MAPPO／HAPPO／HASAC／MADDPG；需核对局部观测半径和动作划分。"
+    }
   },
   {
     "id": "vmas",
@@ -349,7 +439,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/vmas.md"
+    "card": "docs/environments/vmas.md",
+    "beginner": {
+      "agents_zh": "二维模拟器里的机器人或移动实体",
+      "goal_zh": "不是一个固定游戏；任务可以是导航、搬运、协作覆盖或竞争。",
+      "action_example_zh": "根据场景输出移动控制；部分场景也支持离散动作。",
+      "action_scope_zh": "环境家族支持两类动作；先选具体 scenario。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "奖励与任务一起定义，不能给整个 VMAS 一个固定的稀疏度。",
+      "scope_zh": "VMAS 是模拟器与场景集合，不是单一数据集。",
+      "baseline_candidates_zh": "先确定场景和合作／竞争关系，再用动作类型筛选；不要对整个家族给统一算法排名。"
+    }
   },
   {
     "id": "grf",
@@ -382,7 +482,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/grf.md"
+    "card": "docs/environments/grf.md",
+    "beginner": {
+      "agents_zh": "足球场上由算法控制的球员",
+      "goal_zh": "通过跑位、传球、配合和射门，在指定足球场景中完成目标。",
+      "action_example_zh": "从移动、传球、射门等足球动作中选一个。",
+      "action_scope_zh": "离散；具体动作集合由环境配置决定。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "只奖励进球与附加中途奖励是不同设置。",
+      "scope_zh": "Google Research Football；academy 场景、观测表示与奖励塑形需单独记录。",
+      "baseline_candidates_zh": "MAPPO／HAPPO／QMIX 等合作方法；必须匹配可控球员数和团队奖励协议。"
+    }
   },
   {
     "id": "overcooked",
@@ -413,7 +523,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/overcooked.md"
+    "card": "docs/environments/overcooked.md",
+    "beginner": {
+      "agents_zh": "合作厨房里的两名厨师",
+      "goal_zh": "分工拿食材、做汤、装盘和送餐，减少互相挡路。",
+      "action_example_zh": "从走动、等待、交互等命令中选一个。",
+      "action_scope_zh": "离散；任务由布局和规则决定。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "最终送餐奖励与训练时的辅助塑形奖励要分开记录。",
+      "scope_zh": "Overcooked-AI 布局任务；不等同于 OvercookedV2。",
+      "baseline_candidates_zh": "MAPPO／HAPPO；离散价值分解方法也需合作奖励与对应 wrapper。适合显式设计队友泛化实验。"
+    }
   },
   {
     "id": "camar",
@@ -448,7 +568,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/camar.md"
+    "card": "docs/environments/camar.md",
+    "beginner": {
+      "agents_zh": "要穿过障碍到达终点的移动机器人",
+      "goal_zh": "让多个机器人分别到达目标，同时控制碰撞、路径和耗时。",
+      "action_example_zh": "输出连续运动控制，具体含义取决于动力学模型。",
+      "action_scope_zh": "连续；不同动力学下控制向量的含义不同。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "目标、距离／时间和碰撞项的权重随具体设置变化。",
+      "scope_zh": "CAMAR 连续路径规划；不是网格上按上下左右走的同一类动作接口。",
+      "baseline_candidates_zh": "连续 MAPPO／HAPPO／MASAC／MADDPG；同时记录成功、碰撞和路径质量。"
+    }
   },
   {
     "id": "coordination-games",
@@ -478,7 +608,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/coordination-games.md"
+    "card": "docs/environments/coordination-games.md",
+    "beginner": {
+      "agents_zh": "选择数字或小博弈动作的决策者",
+      "goal_zh": "通过联合动作获得高收益，用可控例子分析协调失败。",
+      "action_example_zh": "矩阵博弈选行／列；CoordSum 选数字；微分博弈输出连续控制。",
+      "action_scope_zh": "这个分类中有离散也有连续；每种游戏要单独定义。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "收益直接由 payoff table、上下文或已知耦合图决定。",
+      "scope_zh": "教学／诊断任务的集合，不是统一的可比环境。",
+      "baseline_candidates_zh": "离散游戏可测 QMIX／PPO 类；连续游戏选连续策略。已知最优解适合机制诊断，不代表复杂任务性能。"
+    }
   },
   {
     "id": "open-wildfire",
@@ -509,7 +649,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/open-wildfire.md"
+    "card": "docs/environments/open-wildfire.md",
+    "beginner": {
+      "agents_zh": "野火管理场景中的协作智能体",
+      "goal_zh": "应对火情，同时处理智能体加入／离开或任务变化。",
+      "action_example_zh": "具体局部动作集合尚未在本版核对。",
+      "action_scope_zh": "待核查；不能因为论文用了 DQN 就直接填整个环境的动作定义。",
+      "reward_density": "unknown",
+      "reward_explanation_zh": "本版尚未完整抄录 WS1 的奖励细节。",
+      "scope_zh": "Wildfire WS1 和开放性机制需从作者实现补充。",
+      "baseline_candidates_zh": "先核对动作、动态人数接口和任务变更，再匹配算法；此条暂不自动推荐。"
+    }
   },
   {
     "id": "sumo-rl",
@@ -540,7 +690,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/sumo-rl.md"
+    "card": "docs/environments/sumo-rl.md",
+    "beginner": {
+      "agents_zh": "道路网络中控制信号灯的路口控制器",
+      "goal_zh": "调节交通灯，让网络里的排队和等待下降。",
+      "action_example_zh": "按离散决策选择信号相位；周期等参数需记录。",
+      "action_scope_zh": "离散相位选择，具体任务定义为准。",
+      "reward_density": "config-dependent",
+      "reward_explanation_zh": "通常有路口交通状态相关反馈；排队、等待等目标的定义可不同。",
+      "scope_zh": "SUMO-RL 信号控制；本文映射的是图耦合交通设置。",
+      "baseline_candidates_zh": "MAPPO 等图上合作方法；选择局部／团队奖励聚合必须与问题一致。"
+    }
   },
   {
     "id": "og-marl",
@@ -569,7 +729,17 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/og-marl.md"
+    "card": "docs/environments/og-marl.md",
+    "beginner": {
+      "agents_zh": "已经记录好的多智能体轨迹中的行为主体",
+      "goal_zh": "用已有轨迹学习新策略；训练时未必允许重新向环境采样。",
+      "action_example_zh": "动作由所选离线数据集决定，不是统一的一种。",
+      "action_scope_zh": "取决于具体数据来源；先查数据字段与行为策略。",
+      "reward_density": "dataset-dependent",
+      "reward_explanation_zh": "奖励是轨迹里已经记录的数值，还需检查数据质量与覆盖。",
+      "scope_zh": "这是离线数据资源集合，而不是一个在线游戏。",
+      "baseline_candidates_zh": "选择离线 MARL 方法；off-policy 有 replay 不等于能可靠离线学习，不能直接照搬在线 MAPPO。"
+    }
   },
   {
     "id": "neom",
@@ -599,6 +769,16 @@
     "evidence_status": "literature_checked",
     "runtime_status": "not_run",
     "checked_on": "2026-10-20",
-    "card": "docs/environments/neom.md"
+    "card": "docs/environments/neom.md",
+    "beginner": {
+      "agents_zh": "共同拼出一维数值图案的位置／决策者",
+      "goal_zh": "让所有人的离散选择拼成指定的周期图案，用于人数扩展实验。",
+      "action_example_zh": "从图案允许的有限数值集合中选一个。",
+      "action_scope_zh": "离散；即使选项写成 0.2、0.5 等小数，有限选项仍然是离散动作。",
+      "reward_density": "mixed",
+      "reward_explanation_zh": "按图案偏差给反馈，正确匹配还有与时间有关的额外奖励。",
+      "scope_zh": "Sable 附录 B.7；额外扩展任务，不在 45 个主任务中。",
+      "baseline_candidates_zh": "论文测试 Sable 等扩展性；一般算法还需任务接口。不要将算法已发表结果当作本仓库复现。"
+    }
   }
 ]

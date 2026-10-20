@@ -22,6 +22,8 @@
 
 | 你现在想做什么 | 对应入口 |
 | --- | --- |
+| 先理解每个环境是什么 | [图解与直观介绍](docs/environment-overview.zh-CN.md) |
+| 判断某个算法能不能用 | [动作空间与算法适配](docs/algorithm-fit.zh-CN.md) |
 | 根据研究问题选环境 | [中文选型指南](docs/selection-guide.zh-CN.md) |
 | 浏览环境、动作空间和实现 | [环境与数据资源总表](docs/environment-index.md) |
 | 查看一篇论文用了什么环境 | [论文—环境—训练方式索引](docs/paper-index.md) |
@@ -30,18 +32,24 @@
 | 确认哪些已经实际运行 | [验证记录](docs/verification.md) |
 | 避免做出无法比较的结果 | [版本与协议差异](docs/comparability.md) |
 
-## Sable 的六类主实验环境
+## 先看懂：这些环境都在玩什么
 
-| 环境 | 任务数 | 论文动作空间 | 主要研究对象 |
-| --- | ---: | --- | --- |
-| [RWARE](docs/environments/rware.md) | 15 | 离散 | 仓储搬运、稀疏奖励、拥堵与避碰 |
-| [LBF](docs/environments/lbf.md) | 7 | 离散 | 等级配合、协同采集食物 |
-| [Connector](docs/environments/connector.md) | 4 | 离散 | 路径连接、空间冲突与相互阻塞 |
-| [SMAX](docs/environments/smax.md) | 11 | 离散 | 战斗配合与异质单位 |
-| [MaBrax](docs/environments/mabrax.md) | 5 | 连续 | 多智能体共同控制机器人关节 |
-| [MPE simple_spread](docs/environments/mpe.md) | 3 | 连续 | 3／5／10 个智能体覆盖地标并避碰 |
+![六类环境的原理示意图，非真实环境渲染](assets/environments-at-a-glance.svg)
 
-合计 **45 个主实验任务**。NEOM 和大规模 LBF 是额外的扩展性实验，单独记录。来源为 Sable v5 第 4 节、附录 B 与附录 C 表 2。
+| 环境 | 智能体是谁、要做什么 | 每一步的动作 | 候选算法举例 |
+| --- | --- | --- | --- |
+| RWARE | 仓库机器人把货架送到配送口 | 离散：前进、转向、装卸等 5 个命令 | MAPPO、HAPPO、合作目标下的 QMIX |
+| LBF | 采集者合作搬起单人搬不动的食物 | 离散：移动、停止、LOAD，共 6 个命令 | MAPPO、HAPPO、QMIX、HARL 离散 HASAC |
+| Connector | 每个人画一条起点到终点的线，不能挡住别人 | 离散：上下左右、停止 | MAPPO、HAPPO、合作目标下的 QMIX |
+| SMAX | 己方战斗单位配合击败敌军 | 离散：移动、停止、攻击某个目标 | MAPPO、HAPPO、QMIX |
+| MaBrax | 各智能体控制同一机器人的不同关节 | 连续：输出关节力矩向量 | 连续 MAPPO、HAPPO、HASAC、MADDPG |
+| MPE simple_spread | 小圆点分工覆盖地标并避碰 | 可离散或连续；Sable 采用连续版 | 先定动作版本，再筛选算法 |
+
+这里列的是接口候选，不是性能排名。**观测是数字，不等于动作连续；奖励稀疏，不等于只能用某类算法。**
+
+筛选顺序：**动作类型 → 观测／记忆 → 合作目标与奖励 → 训练／执行信息 → 在线或离线数据 → 预算。** [查看具体匹配规则](docs/algorithm-fit.zh-CN.md)。
+
+Sable 主实验任务数为 RWARE 15、LBF 7、Connector 4、SMAX 11、MaBrax 5、MPE 3，共 45。完整标签见[任务表](docs/sable-tasks.md)。NEOM 与大规模 LBF 是额外扩展实验。
 
 ## 几个会直接影响结论的细节
 
@@ -61,6 +69,7 @@ cd marl-benchmark-atlas
 python scripts/atlas.py --paper sable
 python scripts/atlas.py --tag sparse-reward --action discrete
 python scripts/atlas.py --kind offline-dataset --json
+python scripts/atlas.py --algorithm qmix --action discrete --explain
 python scripts/validate_catalog.py
 ```
 
@@ -70,8 +79,8 @@ python scripts/validate_catalog.py
 
 ```bash
 python -m venv .venv
-# Linux/macOS: source .venv/bin/activate
-# Windows PowerShell: .\.venv\Scripts\Activate.ps1
+source .venv/bin/activate
+# Windows PowerShell 请将上一行替换为：.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements/smoke.txt
 python examples/mpe_smoke.py --output runs/mpe.json
 python examples/mpe_smoke.py --continuous --output runs/mpe-continuous.json

@@ -4,6 +4,23 @@
 
 Agents combine levels to collect food that may be impossible to collect alone. / 智能体通过等级配合采集食物。
 
+## 先看懂这个环境
+
+| 你要知道什么 | 直观解释 |
+| --- | --- |
+| 智能体是谁 | 有不同等级的采集者 |
+| 要完成什么 | 在网格里找食物；单人搬不动时，多人靠近并共同 LOAD。 |
+| 每一步做什么 | 从停止、上下左右、LOAD 中选一个。 |
+| 动作到底是哪类 | 离散：每个智能体 6 个命令。 |
+| 奖励何时出现 | 采集到食物才有奖励；是不是必须合作由食物等级和 force_coop 决定。 |
+| 可先比较的算法 | MAPPO／HAPPO／QMIX／VDN；HASAC 需使用 HARL 的离散动作分支和适配环境。 |
+
+适用范围：原版 LBF 与 Sable 采集任务；参数和奖励归一化仍需分别记录。
+
+这里的算法名称表示**可检查的候选接口**，不是性能排名，也不代表已经跑通。动作类型只是第一道筛选；继续看[算法适配指南](../algorithm-fit.zh-CN.md)。
+
+## Implementation and evidence
+
 | Field | This entry |
 | --- | --- |
 | Resource type | online |

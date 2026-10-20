@@ -22,6 +22,11 @@ def main():
     eids, pids = {e['id'] for e in envs}, {p['id'] for p in papers}
     require(len(eids) == len(envs), 'Duplicate environment id')
     require(len(pids) == len(papers), 'Duplicate paper id')
+    algorithms = load('algorithms.json')
+    require(len({a['id'] for a in algorithms}) == len(algorithms), 'Duplicate algorithm id')
+    for a in algorithms:
+        require(bool(a['actions']) and set(a['actions']) <= {'discrete','continuous'}, 'Invalid algorithm action list: ' + a['id'])
+        require(bool(a['scope']) and a['source'].startswith('https://'), 'Missing implementation scope/source: ' + a['id'])
     require({s['paper_id'] for s in sources} == pids, 'Source manifest must cover every paper')
     for s in sources:
         require(bool(re.fullmatch(r'[0-9a-f]{64}', s['sha256'])), 'Invalid source hash: ' + s['paper_id'])
@@ -30,6 +35,12 @@ def main():
         require(e['kind'] in {'online', 'offline-dataset', 'paper-specific'}, 'Invalid resource type: ' + e['id'])
         require(e['runtime_status'] in {'not_run', 'smoke_passed', 'baseline_reproduced'}, 'Invalid runtime state: ' + e['id'])
         require(e['evidence_status'] == 'literature_checked', 'Missing evidence label: ' + e['id'])
+        b=e.get('beginner',{})
+        require(all(isinstance(b.get(k),str) and b[k] for k in (
+            'agents_zh','goal_zh','action_example_zh','action_scope_zh','scope_zh','baseline_candidates_zh')),
+            'Missing plain-language explanation: ' + e['id'])
+        require(b.get('reward_density') in {'sparse','dense','mixed','config-dependent','dataset-dependent','unknown'},
+                'Invalid reward-density scope: ' + e['id'])
         require((ROOT / e['card']).is_file(), 'Missing environment card: ' + e['id'])
         require(set(e['papers']) <= pids, 'Unknown paper: ' + e['id'])
         for p in papers:

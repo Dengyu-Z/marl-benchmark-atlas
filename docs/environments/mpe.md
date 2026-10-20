@@ -4,6 +4,23 @@
 
 Particle agents navigate, communicate or compete in a 2D world. / 二维粒子导航、通信和协作或竞争。
 
+## 先看懂这个环境
+
+| 你要知道什么 | 直观解释 |
+| --- | --- |
+| 智能体是谁 | 二维平面上移动的小圆点 |
+| 要完成什么 | 以 simple_spread 为例：分工覆盖所有地标，同时减少相互碰撞。 |
+| 每一步做什么 | 离散版选择方向；连续版输出各方向的控制强度。 |
+| 动作到底是哪类 | 两种版本都有；Sable 使用连续版，MPE2 默认可设为离散。 |
+| 奖励何时出现 | simple_spread 根据地标距离和碰撞给反馈，回报通常可以是负数。 |
+| 可先比较的算法 | MAPPO／HAPPO 两种动作都可；QMIX 选离散版；MADDPG 选连续版；HARL HASAC 有两种分支。 |
+
+适用范围：密集奖励说明只针对 simple_spread；不能推广到所有 MPE 场景。
+
+这里的算法名称表示**可检查的候选接口**，不是性能排名，也不代表已经跑通。动作类型只是第一道筛选；继续看[算法适配指南](../algorithm-fit.zh-CN.md)。
+
+## Implementation and evidence
+
 | Field | This entry |
 | --- | --- |
 | Resource type | online |
